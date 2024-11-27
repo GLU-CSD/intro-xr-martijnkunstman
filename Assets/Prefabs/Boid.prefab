@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeight: 100
-  currentHeight: 0.9000001
+  currentHeight: 0
 --- !u!1 &5837519882248683439
 GameObject:
   m_ObjectHideFlags: 0
