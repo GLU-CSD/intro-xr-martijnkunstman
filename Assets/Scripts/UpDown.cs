@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class UpDown : MonoBehaviour
 {
-    public float maxHeight = 100f;
-    public float currentHeight;
+    //public float maxHeight = 100f;
+    //public float currentHeight;
+    [SerializeField] private Transform childObject;
 
     void Start()
     {
@@ -15,18 +16,20 @@ public class UpDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = new Vector3(0, currentHeight, 0);
+        //this.gameObject.transform.position += new Vector3(0, 0.1f, 0);
     }
 
     public void GoDown(float amount)
     {
-        currentHeight -= amount;
-        currentHeight = Mathf.Clamp(currentHeight, 0, maxHeight);
+        //currentHeight -= amount;
+        //currentHeight = Mathf.Clamp(currentHeight, 0, maxHeight);
+        childObject.position -= new Vector3(0, 0.1f, 0);
     }
 
     public void GoUp(float amount)
     {
-        currentHeight += amount;
-        currentHeight = Mathf.Clamp(currentHeight, 0, maxHeight);
+        //currentHeight += amount;
+        //currentHeight = Mathf.Clamp(currentHeight, 0, maxHeight);
+        childObject.position += new Vector3(0, 0.1f, 0);
     }
 }
