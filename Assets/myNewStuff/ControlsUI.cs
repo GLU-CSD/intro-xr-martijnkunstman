@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlsUI : MonoBehaviour
 {
     public string prefabTag = "SpaceShip"; // Zorg dat je prefab deze tag heeft
     private Controls controls;
+
 
     private bool up = false;
     private bool down = false;
@@ -16,21 +18,43 @@ public class ControlsUI : MonoBehaviour
     {
         if (controls != null)
         {
-            if (direction == 0)
+            if (pressed)
             {
-                controls.UpPressed;
+                if (direction == 0)
+                {
+                    controls.UpPressed();
+                }
+                else if (direction == 1)
+                {
+                    controls.DownPressed();
+                }
+                else if (direction == 2)
+                {
+                    controls.LeftPressed();
+                }
+                else if (direction == 3)
+                {
+                    controls.RightPressed();
+                }
             }
-            else if (direction == 1)
+            else
             {
-                controls.down = pressed;
-            }
-            else if (direction == 2)
-            {
-                controls.left = pressed;
-            }
-            else if (direction == 3)
-            {
-                controls.right = pressed;
+                if (direction == 0)
+                {
+                    controls.UpReleased();
+                }
+                else if (direction == 1)
+                {
+                    controls.DownReleased();
+                }
+                else if (direction == 2)
+                {
+                    controls.LeftReleased();
+                }
+                else if (direction == 3)
+                {
+                    controls.RightReleased();
+                }
             }
         }
     }
@@ -38,6 +62,7 @@ public class ControlsUI : MonoBehaviour
     public void UpPressed()
     {
         action(0, true);
+        //Debug.Log("Up pressed - UI");
     }
 
     public void UpRelease()
